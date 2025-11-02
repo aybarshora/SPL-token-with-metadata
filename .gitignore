@@ -1,0 +1,47 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Build artifacts
+dist/
+build/
+cache/
+coverage/
+*.log
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# TypeScript (if using it)
+*.tsbuildinfo
+
+# Solana / crypto
+*.key
+*.pem
+*.json
+id.json
+*.wallet
+test-ledger/
+.solana/
+ledger/
+.tmp/
+
+# Optional: compiled output or sandbox data
+*.out
+*.bak
+*.tmp
+
+# GitHub / metadata
+*.tgz
