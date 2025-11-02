@@ -53,7 +53,6 @@ const metadataLen = pack(metadata).length;
 // Size of MetadataExtension 2 bytes for type, 2 bytes for length
 const metadataExtension = TYPE_SIZE + LENGTH_SIZE;
 
-
 // metadata pointer extension size
 const spaceWithoutMetadataExtension = getMintLen([
   ExtensionType.MetadataPointer
@@ -102,9 +101,7 @@ const initializeMetadataIx = createInitializeInstruction({
   updateAuthority: authority.publicKey
 });
 
-
-
-// Build first transaction
+// Build first transaction. Batch several instructions in one transaction.
 const tx = new Transaction().add(
   createMintAccountIx,
   initializeMetadataPointerIx,
@@ -116,7 +113,6 @@ const tx = new Transaction().add(
 await sendAndConfirmTransaction(connection, tx, [authority, mint]);
 
 console.log("Mint Address:", mint.publicKey.toBase58());
-
 
 // Create (or fetch) your ATA for this mint
 const ata = await getOrCreateAssociatedTokenAccount(
